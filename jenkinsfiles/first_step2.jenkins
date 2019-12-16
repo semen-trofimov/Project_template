@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@192.168.1.26 \'apt-get upgrade\''
+                sh 'ssh root@192.168.1.26 \'apt-get -y upgrade\''
             }
         }
     }
