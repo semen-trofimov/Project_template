@@ -23,9 +23,7 @@ pipeline {
         stage("docker run") {
             steps {
                 echo " ============== start running docker =================="
-                sh '''
-                docker run -d -P --name trofimov/toolbox2
-                '''
+                sh 'docker run -d -P --name trofimov/toolbox2'
             }
         }
     }
