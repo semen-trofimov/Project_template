@@ -15,10 +15,17 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('toolbox2') {
+                dir ('docker/toolbox2') {
                 	sh 'docker build -t trofimov/toolbox2:latest . '
-                	
                 }
+            }
+        }
+        stage("docker run") {
+            steps {
+                echo " ============== start running docker =================="
+                sh '''
+                docker run -d -P --name trofimov/toolbox2
+                '''
             }
         }
     }
