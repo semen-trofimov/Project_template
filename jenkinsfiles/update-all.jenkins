@@ -26,7 +26,7 @@ pipeline {
         }
         stage("Update 192.168.1.12(Grafana server)") {
             steps {
-                sh 'ssh root@192.168.1.12 \'apt-get -y upgrade\''
+                sh 'ssh root@192.168.1.12 \'apt-get update\''
                 sh 'ssh root@192.168.1.12 \'apt-get -y upgrade\''
             }
         }
