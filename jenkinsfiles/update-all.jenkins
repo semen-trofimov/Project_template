@@ -28,8 +28,6 @@ pipeline {
             steps {
                 sh 'ssh root@192.168.1.12 \'apt-get update\''
                 sh 'ssh root@192.168.1.12 \'apt-get -y upgrade\''
-              } 
-             }
            }
         }
     }
