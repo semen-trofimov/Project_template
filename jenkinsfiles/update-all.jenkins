@@ -15,6 +15,13 @@ pipeline {
             steps {
                 sh 'ssh root@192.168.1.15 \'apt-get update\''
                 sh 'ssh root@192.168.1.15 \'apt-get -y upgrade\''
+    
+            }
+        }
+        stage("Update 192.168.1.11(ORanjePI Domoticz server)") {
+            steps {
+                sh 'ssh root@192.168.1.11 \'apt-get update\''
+                sh 'ssh root@192.168.1.11 \'apt-get -y upgrade\''
             }
         }
         stage("Update 192.168.1.12(Grafana server)") {
