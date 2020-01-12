@@ -1,0 +1,27 @@
+#!groovy
+// Check ub1 properties
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent { 
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages {
+        stage("Update 192.168.1.15(Raspbery ubuntu server)") {
+            steps {
+                sh 'ssh root@192.168.1.15 \'apt-get update\''
+                sh 'ssh root@192.168.1.15 \'apt-get -y upgrade\''
+            }
+        }
+        stage("Update 192.168.1.12(Grafana server)") {
+            steps {
+                sh 'ssh root@192.168.1.12 \'apt-get -y upgrade\''
+                sh 'ssh root@192.168.1.12 \'apt-get -y upgrade\''
+            }
+        }
+    }
+}
